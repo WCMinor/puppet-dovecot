@@ -26,6 +26,7 @@ class dovecot (
     $auth_debug                 = undef,
     $mail_debug                 = undef,
     # 10-mail.conf
+    $include_inbox_namespace    = undef,
     $mail_location              = undef,
     # 10-master.conf
     $default_process_limit      = undef,
@@ -54,9 +55,9 @@ class dovecot (
 ) {
 
     case $::operatingsystem {
-    'RedHat', 'CentOS': { 
+    'RedHat', 'CentOS': {
         $packages = 'dovecot'
-    } 
+    }
     /^(Debian|Ubuntu)$/:{
         $packages = ['dovecot-common','dovecot-imapd']
     }
